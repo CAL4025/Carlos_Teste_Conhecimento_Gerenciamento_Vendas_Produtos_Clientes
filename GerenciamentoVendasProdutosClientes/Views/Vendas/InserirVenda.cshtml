@@ -1,0 +1,50 @@
+﻿@model VendasModel
+
+@{
+    ViewData["Title"] = "Incluir Nova Venda";
+}
+
+<div class="text-center" >
+
+    <h2>Inserir Nova Venda</h2>
+
+</div>
+
+
+<form asp-controller="Vendas" asp-action="InserirVenda" method="post" name="form2">
+
+      <div class="form-group">
+        <label for="idCliente">ID Cliente</label>
+        <input type="number" asp-for="idCliente"class="form-control" id="idClienteVendaInserir" aria-describedby="emailHelp" placeholder="ID Cliente">
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="idProduto">ID Produto</label>
+        <input type="number" asp-for="idProduto" class="form-control" id="idProdutoVendaInserir" placeholder="ID Produto">
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="quantidade">Quantidade</label>
+        <input type="number" asp-for="qtdVenda" class="form-control" id="qtdVendaInserir" placeholder="Quantidade">
+      </div>
+       <br />
+       <div class="form-group">
+        <label for="dataVenda">Data Venda</label>
+        <input type="date" asp-for="dthVenda" class="form-control" id="dtVendaInserir" placeholder="Data da Venda">
+      </div>
+      <br />
+      <button type="button" class="btn btn-primary" id="btnInserirVenda">Inserir</button>
+      <a class="btn btn-secondary" asp-controller="Vendas" asp-action="Index" role="button">Voltar</a>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Vendas.js"></script>
+
+
+

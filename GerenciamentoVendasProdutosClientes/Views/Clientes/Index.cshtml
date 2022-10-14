@@ -1,0 +1,116 @@
+﻿@model List<ClientesModel>
+
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="text-center" >
+
+    <div class="d-grid">
+        <h2 class="text-lg-start">Listagem de Clientes</h2>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+           <a class="btn btn-success" role="button" id="btnPesquisarCliente">Pesquisar Cliente</a>
+           <a class="btn btn-primary" role="button"  asp-controller = "Clientes" asp-action="InserirCliente">Incluir Novo Cliente</a>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <table class="table" >
+         <thead class="table-dark">
+            <tr>
+              <th scope="col">ID Cliente</th>
+              <th scope="col">Nome </th>
+              <th scope="col">Cidade</th>
+              <th scope="col">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+               @if (Model != null && Model.Any())
+               {
+                    foreach(ClientesModel cliente in Model)
+                    {
+                        <tr>
+                            <th scope="row">@cliente.Id</th>
+                            <td>@cliente.nmCliente</td>
+                            <td>@cliente.cidade</td>
+                            <td>
+                              <a role="button" class="btn btn-outline-primary" asp-route-id="@cliente.Id" asp-controller="Clientes" asp-action="EditarCliente">Editar</a>
+                              <a role="button" class="btn btn-outline-danger" id="btnExcluirCliente" data-id="@cliente.Id">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                }
+        
+          </tbody>
+    </table>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Clientes.js"></script>
+
+<script>
+
+   
+
+    @if (TempData["Mensagem"] != null)
+    {
+        if (TempData["e"] == null)
+        {
+            TempData["e"] = "Erro: 0XXX-b";
+        }
+
+        switch (TempData["Mensagem"].ToString())
+        {
+               case "0":
+                 <text>
+    Swal.fire(
+     'Erro!',
+     '@TempData["e"].ToString()',
+     'error'
+     )</text>
+                break;
+                   case "1":
+                 <text>
+    Swal.fire(
+        'Excluído!',
+        'Cliente excluído!',
+        'success'
+    )</text>
+                break;
+                case "2":
+                 <text>
+     Swal.fire(
+        'Erro!',
+        'Erro ao excluir cliente!',
+        'warning'
+     )</text>
+                break;
+            case "3":
+                <text>
+     Swal.fire(
+        'Incluído!',
+        'Cliente incluído!',
+        'success')
+     )</text>
+                break;
+                 case "4":
+                 <text>
+      Swal.fire(
+        'Editado!',
+        'Cliente editado!',
+        'success'
+      )</text>
+                break;
+            default:
+                break;
+        }
+
+    }
+</script>

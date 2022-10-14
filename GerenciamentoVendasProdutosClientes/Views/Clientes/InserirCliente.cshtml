@@ -1,0 +1,36 @@
+﻿@model ClientesModel
+
+@{
+    ViewData["Title"] = "Incluir Novo Cliente";
+}
+
+<div class="text-center" >
+
+    <h2>Incluir Novo Cliente</h2>
+
+</div>
+
+
+<form asp-controller="Clientes" asp-action="InserirCliente" method="post" name="form2"> 
+       <br />
+      <div class="form-group">
+        <label for="nmCliente">Nome</label>
+        <input type="text" class="form-control" asp-for="nmCliente" id="nmClienteInserir" placeholder="Nome Cliente">
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input type="text" class="form-control" asp-for="cidade" id="cidadeInserir" placeholder="Cidade">
+      </div>
+       <br />
+      <button type="button" class="btn btn-primary" id="btnInserirCliente">Inserir</button>
+      <a class="btn btn-secondary" asp-controller="Clientes" asp-action="Index" role="button">Voltar</a>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Clientes.js"></script>

@@ -1,0 +1,38 @@
+﻿@model ProdutosModel
+
+@{
+    ViewData["Title"] = "Incluir Novo Produto";
+}
+
+<div class="text-center" >
+
+    <h2>Incluir Novo Produto</h2>
+
+</div>
+
+
+<form asp-controller="Produtos" asp-action="InserirProduto" method="post" name="form2">
+       <br />
+      <div class="form-group">
+        <label for="descProduto">Descrição Produto</label>
+        <input type="text" class="form-control" asp-for="dscProduto" id="idProdutoInserir" placeholder="Descrição Produto">
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="vlrUnitario">Valor Unitário</label>
+        <input type="number" class="form-control" asp-for="vlrUnitario" id="vlrUnitárioProdutoInserir" placeholder="Valor Unitário">
+      </div>
+       <br />
+      <button type="submit" class="btn btn-primary" id="btnInserirProduto">Inserir</button>
+      <a class="btn btn-secondary" asp-controller="Produtos" asp-action="Index" role="button">Voltar</a>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Produtos.js"></script>
+
+

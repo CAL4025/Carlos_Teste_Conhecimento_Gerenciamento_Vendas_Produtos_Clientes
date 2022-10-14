@@ -1,0 +1,127 @@
+﻿@model List<VendasModel>
+
+@{
+    ViewData["Title"] = "Vendas";
+}
+
+<div class="text-center" >
+
+    <div class="d-grid">
+         <h2 class="text-lg-start">Listagem de Vendas</h2>
+         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-success" role="button" id="btnPesquisarVenda">Pesquisar Venda</a>
+            <a class="btn btn-primary" role="button" asp-controller = "Vendas" asp-action="InserirVenda">Incluir Nova Venda</a>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    @if (Model != null && Model.Any())
+    {
+    <table class="table">
+         <thead class="table-dark">
+            <tr>
+              <th scope="col">ID Venda</th>
+              <th scope="col">ID Cliente</th>
+              <th scope="col">ID Produto</th>
+              <th scope="col">Qtd. Vendida</th>
+              <th scope="col">Valor Unitário</th>
+              <th scope="col">Data Venda</th>
+              <th scope="col">Valor Venda</th>
+              <th scope="col">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            @foreach(VendasModel venda in Model)
+            {
+                <tr>
+                    <th scope="row">@venda.Id </th>
+                    <td>@venda.idCliente</td>
+                    <td>@venda.idProduto</td>
+                    <td>@venda.qtdVenda</td>
+                    <td>@venda.vlrUnitarioVenda</td>
+                    <td>@venda.dthVenda</td>
+                    <td>@venda.vlrTotalVenda</td>
+                    <td>
+                        <a role="button" class="btn btn-outline-primary" asp-route-id="@venda.Id" asp-controller="Vendas" asp-action="EditarVenda">Editar</a>
+                        <a role="button" class="btn btn-outline-danger" id="btnExcluirVenda" data-id="@venda.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+          </tbody>
+    </table> 
+    }
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Vendas.js"></script>
+
+<script>
+
+    @if (TempData["Mensagem"] != null)
+    {
+        if (TempData["e"] == null)
+        {
+            TempData["e"] = "Erro: 0XXX-b";
+        }
+
+        switch (TempData["Mensagem"].ToString())
+        {
+               case "0":
+                 <text>
+    Swal.fire(
+     'Erro!',
+     '@TempData["e"].ToString()',
+     'error'
+     )</text>
+                break;
+                   case "1":
+                 <text>
+    Swal.fire(
+        'Excluído!',
+        'Venda excluída!',
+        'success'
+    )</text>
+    
+                break;
+                case "2":
+                 <text>
+     Swal.fire(
+        'Erro ao excluir venda!',
+        'Erro ao excluir venda!',
+        'warning'
+     )</text>
+                break;
+            case "3":
+                <text>
+     Swal.fire(
+        'Incluído!',
+        'Venda incluída!',
+        'success')
+     )</text>
+                break;
+                 case "4":
+                 <text>
+      Swal.fire(
+        'Editado!',
+        'Venda editada!',
+        'success'
+      )</text>
+                break;
+            default:
+                break;
+        }
+
+    }
+</script>
+
+
+
+
+

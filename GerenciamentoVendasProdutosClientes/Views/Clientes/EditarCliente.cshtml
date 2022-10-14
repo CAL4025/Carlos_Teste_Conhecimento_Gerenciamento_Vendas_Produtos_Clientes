@@ -1,0 +1,43 @@
+﻿@model ClientesModel
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<div class="text-center" >
+
+    <h2>Editar Cliente</h2>
+
+</div>
+
+
+<form asp-controller="Clientes" asp-action="EditarCliente" method="post" name="form3">
+      <div class="form-group">
+        <label for="idClienteEditar">ID Cliente</label>
+        <input type="number" class="form-control" asp-for="Id" id="idClienteEditar" aria-describedby="emailHelp" placeholder="ID Cliente" readonly>
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="dscProdutoEditar">Nome</label>
+        <input type="text" class="form-control"  asp-for="nmCliente" id="nmClienteEditar" aria-describedby="emailHelp" placeholder="Nome">
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="vlrUnitarioEditar">Cidade</label>
+        <input type="text" class="form-control" asp-for="cidade" id="cidadeEditar" placeholder="Cidade">
+      </div>
+       <br />
+      <br />
+      <button type="button" class="btn btn-primary" id="btnEditarCliente">Editar</button>
+      <a class="btn btn-secondary" asp-controller="Clientes" asp-action="Index" role="button">Voltar</a>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Clientes.js"></script>

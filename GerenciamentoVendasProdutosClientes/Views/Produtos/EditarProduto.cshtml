@@ -1,0 +1,46 @@
+﻿@model ProdutosModel
+
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<div class="text-center" >
+
+    <h2>Editar Produto</h2>
+
+</div>
+
+
+<form asp-controller="Produtos" asp-action="EditarProduto" method="post" name="form3">
+      <div class="form-group">
+        <label for="idProdutoEditar">ID Produto</label>
+        <input type="number" class="form-control" asp-for="Id" id="idProdutoEditar" aria-describedby="emailHelp" placeholder="ID Produto" readonly>
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="dscProdutoEditar">Descrição Produto</label>
+        <input type="text" class="form-control"  asp-for="dscProduto" id="dscProdutoEditar" aria-describedby="emailHelp" placeholder="Descrição Produto">
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="vlrUnitarioEditar">Valor Unitário</label>
+        <input type="number" class="form-control"  asp-for="vlrUnitario" id="vlrUnitarioEditar" placeholder="Valor Unitário">
+      </div>
+       <br />
+      <br />
+      <button type="submit" class="btn btn-primary" id="btnProdutoEditar">Editar</button>
+      <a class="btn btn-secondary" asp-controller="Produtos" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Produtos.js"></script>
+
+

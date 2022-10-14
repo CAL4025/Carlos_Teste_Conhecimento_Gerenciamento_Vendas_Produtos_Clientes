@@ -1,0 +1,59 @@
+﻿@model VendasModel
+
+@{
+    ViewData["Title"] = "Editar Venda";
+}
+
+
+<div class="text-center" >
+
+    <h2>Editar Venda</h2>
+
+</div>
+
+
+<form asp-controller="Vendas" asp-action="EditarVenda" method="post" name="form3">
+     
+      
+    
+      <div class="form-group">
+        <label for="idVendaEditar">ID Venda</label>
+        <input type="number" class="form-control" asp-for="Id" id="idVendaEditar"  placeholder="ID Venda" readonly>
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="idClienteEditar">ID Cliente</label>
+        <input type="number" class="form-control" asp-for="idCliente" id="idClienteVendaEditar"  placeholder="ID Cliente">
+      
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="idProdutoEditar">ID Produto</label>
+        <input type="number" class="form-control" asp-for="idProduto" id="idProdutVendaoEditar" placeholder="ID Produto">
+      </div>
+       <br />
+      <div class="form-group">
+        <label for="qtdEditar">Quantidade</label>
+        <input type="number" class="form-control" asp-for="qtdVenda" id="qtdVendaEditar" placeholder="Quantidade">
+      </div>
+       <br />
+       <div class="form-group">
+        <label for="dthVendaEditar">Data Venda</label>
+        <input type="date" class="form-control" asp-for="dthVenda" id="dthVendaEditar" placeholder="Data da Venda">
+      </div>
+      <br />
+      <button type="button" class="btn btn-primary" id="btnVendaEditar">Editar</button>
+      <a class="btn btn-secondary" asp-controller="Vendas" asp-action="Index" role="button">Voltar</a>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="~/js/Vendas.js"></script>
+
+
+
